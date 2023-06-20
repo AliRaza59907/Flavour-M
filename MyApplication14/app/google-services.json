@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "292398787760",
+    "project_id": "kitchen-maestro",
+    "storage_bucket": "kitchen-maestro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292398787760:android:45426a14a8f1752d969f75",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292398787760-fvsrms82vfa504t50aiis8j0gtt9a12u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDo3h9wewmX5mwOOtLLBszXVYWQ_-bH7v4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292398787760-fvsrms82vfa504t50aiis8j0gtt9a12u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
