@@ -1,4 +1,4 @@
-package com.example.flavourApp.join;
+package com.example.flavourApp.Join;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
