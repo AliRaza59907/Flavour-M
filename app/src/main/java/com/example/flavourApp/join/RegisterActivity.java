@@ -1,9 +1,8 @@
-package com.example.myapplication;
+package com.example.flavourApp.join;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,16 +12,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.flavourApp.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class login extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
     EditText Email, Password;
     TextView logg;
-    Button lbutton;
+    Button rbutton;
     FirebaseAuth mAuth;
 
     @Override
@@ -38,61 +38,60 @@ public class login extends AppCompatActivity {
     }
 
 
-    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        logg=findViewById(R.id.tvRegister);
+        setContentView(R.layout.activity_register);
+        logg=findViewById(R.id.log);
         mAuth=FirebaseAuth.getInstance();
-        Email=findViewById(R.id.etUsername);
-        Password=findViewById(R.id.etUsername);
-        lbutton=findViewById(R.id.btnLogin);
+        Email=findViewById(R.id.rUsername);
+        Password=findViewById(R.id.rPassword);
+        rbutton=findViewById(R.id.rbtnLogin);
+
+
 
         logg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(), Register.class);
+                Intent intent=new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
 
-        lbutton.setOnClickListener(new View.OnClickListener() {
+        rbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email,password;
-                email = String.valueOf(Email.getText());
+               email = String.valueOf(Email.getText());
                 password = String.valueOf(Password.getText());
                 if (TextUtils.isEmpty(email))
                 {
-                    Toast.makeText(login.this, "Enter Email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Enter Email", Toast.LENGTH_SHORT).show();
                     return;
-                }
+            }
                 if (TextUtils.isEmpty(password))
                 {
-                    Toast.makeText(login.this, "Enter Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Enter Password", Toast.LENGTH_SHORT).show();
                 }
-
-                mAuth.signInWithEmailAndPassword(email, password)
+                mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(getApplicationContext(),"Login succesfull",Toast.LENGTH_SHORT).show();
-
-                                    Intent intent=new Intent(getApplicationContext(), MainActivity.class);
+                                    Toast.makeText(RegisterActivity.this, "Account Created",
+                                            Toast.LENGTH_SHORT).show();
+                                    Intent intent=new Intent(getApplicationContext(), LoginActivity.class);
                                     startActivity(intent);
-                                    finish();
                                 } else {
-
-                                    Toast.makeText(login.this, "Authentication failed.",
+                                    // If sign in fails, display a message to the user.
+                                    Toast.makeText(RegisterActivity.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
 
                                 }
                             }
                         });
-            }
-        });
-    }
-}
+
+        }
+    });
+}}
