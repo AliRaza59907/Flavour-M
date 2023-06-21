@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
-        android:inputType="text"/>
+        android:inputType="textEmailAddress"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -21,7 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/etUsername"
         android:hint="Password"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/btnLogin"

@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -30,13 +31,14 @@ public class login extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Intent intent=new Intent(getApplicationContext(), MainActivity .class);
+            Intent intent=new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();
         }
     }
 
 
+    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
